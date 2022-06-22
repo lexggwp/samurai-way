@@ -4,10 +4,15 @@
     background: #3b442a;
 }
 
+.item {
+    padding: 10px;
+}
 
 .item a {
     color: white;
+    text-decoration: none;
 }
 .item a:focus {
     color: gold;
+    text-decoration: underline;
 }
