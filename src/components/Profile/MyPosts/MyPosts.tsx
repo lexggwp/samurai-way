@@ -9,10 +9,13 @@ const MyPosts = () => {
     const msg2: string = 'its my first post';
 
     return (
-        <div>
+        <div className={c.post__block}>
             my posts
             <div>
-                new post
+                <textarea></textarea>
+            </div>
+            <div>
+                <button>Add post</button>
             </div>
             <div className={c.posts}>
                 <Post message={msg1} likes={0}/>
