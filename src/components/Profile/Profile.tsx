@@ -5,7 +5,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <div className={c.content}>
+        <div>
             <div>
                 <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/0d/af/be/panorama-of-ocean.jpg?w=700&h=500&s=1" alt=""/>
             </div>
