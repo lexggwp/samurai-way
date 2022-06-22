@@ -2,9 +2,10 @@ import React from "react";
 import c from './Post.module.css';
 
 
-type PostPropsType = {
+export type PostPropsType = {
     message: string;
     likes: number;
+    id: number;
 }
 
 
