@@ -6,10 +6,11 @@ import Post, {PostPropsType} from "./Post/Post";
 const MyPosts = () => {
 
 
-    let postsData: Array<PostPropsType> = [
+    let posts: Array<PostPropsType> = [
         {id: 1, message: 'hey how are you', likes: 25},
-        {id: 2, message: 'its my first post', likes: 0 }
+        {id: 2, message: 'its my first post', likes: 0}
     ]
+    let postsElements = posts.map((post) => <Post id={post.id} message={post.message} likes={post.likes}/>)
 
     return (
         <div className={c.post__block}>
@@ -21,8 +22,7 @@ const MyPosts = () => {
                 <button>Add post</button>
             </div>
             <div className={c.posts}>
-                <Post id={postsData[0].id }message={postsData[0].message}  likes={postsData[0].likes} />
-                <Post id={postsData[1].id }message={postsData[1].message}  likes={postsData[1].likes} />
+                {postsElements}
 
 
             </div>
