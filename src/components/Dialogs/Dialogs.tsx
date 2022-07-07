@@ -5,13 +5,18 @@ import Message from './Message/Message'
 import {DialogsTypes} from "../../App";
 
 
+type DialogsType = {
+    state: DialogsTypes
+}
 
-const Dialogs = (props: DialogsTypes) => {
 
-    const dialogsElements = props.dialogs.map((dialog) =>
+
+const Dialogs = (props: DialogsType) => {
+
+    const dialogsElements = props.state.dialogs.map((dialog) =>
         <DialogsItem name={dialog.name} id={dialog.id}/>
     );
-    const messagesElements = props.messages.map((message) =>
+    const messagesElements = props.state.messages.map((message) =>
             <Message message={message.message} id={message.id}/>
         );
 

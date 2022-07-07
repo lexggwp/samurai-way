@@ -8,10 +8,12 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PostPropsType} from "./components/Profile/MyPosts/Post/Post";
 import {DialogPropsType} from "./components/Dialogs/DialogsItem/DialogsItem";
 import {MessagePropsType} from "./components/Dialogs/Message/Message";
+import {StateType} from "./redux/state";
+
 
 
 export type DialogsTypes = {
-    dialogs: Array<DialogPropsType>
+    dialogs: Array<DialogPropsType>,
     messages: Array<MessagePropsType>
 }
 
@@ -20,15 +22,11 @@ export type MyPostPropsType = {
 
 }
 
-export type AllPostsType = {
-    dialogs: Array<DialogPropsType>
-    messages: Array<MessagePropsType>
-    posts:  Array<PostPropsType>
+export type AllPageType = {
+   state: StateType
 }
 
-
-
-function App (props: AllPostsType)  {
+function App (props: AllPageType)  {
 
     return (
         <BrowserRouter>
@@ -39,8 +37,8 @@ function App (props: AllPostsType)  {
 
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path='/profile' element={<Profile posts={props.posts}/>}/>
-                        <Route path='/dialogs/*' element={<Dialogs messages={props.messages} dialogs={props.dialogs}/>}/>
+                        <Route path='/profile' element={<Profile state={props.state.profilePage}/>}/>
+                        <Route path='/dialogs/*' element={<Dialogs state={props.state.messagesPage} />}/>
                     </Routes>
                 </div>
 
