@@ -1,9 +1,32 @@
 import {DialogsTypes, MyPostPropsType} from '../App'
+import {rerenderEntiretree} from "../render";
 
 export type StateType = {
     profilePage: MyPostPropsType,
     messagesPage: DialogsTypes
 }
+
+ type PostMessagePropsType = {
+    id: number,
+    message: string,
+    likes: number
+ }
+
+export let addPost = (postMessage: string) => {
+    let newPost: PostMessagePropsType  = {
+        id: 5,
+        message: postMessage,
+        likes: 0
+    };
+
+    state.profilePage.posts.push(newPost)
+    rerenderEntiretree(state);
+}
+
+
+
+
+
 let state: StateType = {
     profilePage: {
         posts: [
