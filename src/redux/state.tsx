@@ -1,7 +1,6 @@
 import {DialogsTypes, MyPostPropsType} from '../App'
 
-let rerenderEntireTree = () => {
-    console.log('123');
+let rerenderEntireTree = (state: StateType) => {
 }
 
 export type StateType = {
