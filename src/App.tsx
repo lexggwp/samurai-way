@@ -18,13 +18,15 @@ export type DialogsTypes = {
 
 export type MyPostPropsType = {
     posts: Array<PostPropsType>
+    newPostText: string;
 
 
 }
 
 export type AllPageType = {
     state: StateType
-    addPost: (postMessage: string) => void;
+    addPost: () => void;
+    updateNewPostText: (newPostText: string) => void;
 }
 
 function App(props: AllPageType) {
@@ -35,7 +37,7 @@ function App(props: AllPageType) {
             <Nav/>
             <div className='app-wrapper-content'>
                 <Routes>
-                    <Route path='/profile' element={<Profile addPost={props.addPost} state={props.state.profilePage}/>}/>
+                    <Route path='/profile' element={<Profile updateNewPostText={props.updateNewPostText} addPost={props.addPost} state={props.state.profilePage}/>}/>
                     <Route path='/dialogs/*' element={<Dialogs state={props.state.messagesPage}/>}/>
                 </Routes>
             </div>

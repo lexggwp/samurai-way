@@ -1,5 +1,8 @@
 import {DialogsTypes, MyPostPropsType} from '../App'
-import {rerenderEntiretree} from "../render";
+
+let rerenderEntireTree = () => {
+    console.log('123');
+}
 
 export type StateType = {
     profilePage: MyPostPropsType,
@@ -12,18 +15,27 @@ export type StateType = {
     likes: number
  }
 
-export let addPost = (postMessage: string) => {
+export let addPost = () => {
     let newPost: PostMessagePropsType  = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likes: 0
     };
 
-    state.profilePage.posts.push(newPost)
-    rerenderEntiretree(state);
+    state.profilePage.posts.unshift(newPost)
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
 }
 
+export const updateNewPostText = (newPostText: string) => {
+    state.profilePage.newPostText = newPostText;
 
+    rerenderEntireTree(state);
+}
+
+export const subscribe = (observer: any) => {
+    rerenderEntireTree = observer;
+}
 
 
 
@@ -34,7 +46,8 @@ let state: StateType = {
             {id: 2, message: 'its my first post', likes: 0},
             {id: 3, message: 'its my firDFGSDGFDSGst post', likes: 0},
             {id: 4, message: 'its my fiDSGSDGSGSGrst po st', likes: 0}
-        ]
+        ],
+        newPostText: '',
 
     },
     messagesPage: {
